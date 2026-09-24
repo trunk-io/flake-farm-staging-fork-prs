@@ -40,15 +40,16 @@ jobs:
         uses: trunk-io/analytics-uploader@main
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
+          TRUNK_ALLOW_FORKED_PR_UPLOADS: "true"
         with:
           # Path to your test results.
           junit-paths: javascript/tests/mocha/mocha_test.xml
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
-          public-repo-id: NNSvcFXb
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.mocha_tests.outcome }}
           test-collection-id: 5fheimOf
+          cli-version: 0.15.5-beta.3
 
       - name: Run Jest Tests
         id: jest_tests
@@ -61,15 +62,16 @@ jobs:
         uses: trunk-io/analytics-uploader@main
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
+          TRUNK_ALLOW_FORKED_PR_UPLOADS: "true"
         with:
           # Path to your test results.
           junit-paths: tests/jest/jest_junit_test.xml
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
-          public-repo-id: NNSvcFXb
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.jest_tests.outcome }}
           test-collection-id: 5fheimOf
+          cli-version: 0.15.5-beta.3
 
       - name: Run Jasmine Tests
         id: jasmine_tests
@@ -82,15 +84,16 @@ jobs:
         uses: trunk-io/analytics-uploader@main
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
+          TRUNK_ALLOW_FORKED_PR_UPLOADS: "true"
         with:
           # Path to your test results.
           junit-paths: tests/jasmine/reports/season_test.xml
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
-          public-repo-id: NNSvcFXb
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.jasmine_tests.outcome }}
           test-collection-id: 5fheimOf
+          cli-version: 0.15.5-beta.3
 
       - name: Run Playwright Tests
         id: playwright_tests
@@ -103,15 +106,16 @@ jobs:
         uses: trunk-io/analytics-uploader@main
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
+          TRUNK_ALLOW_FORKED_PR_UPLOADS: "true"
         with:
           # Path to your test results.
           junit-paths: tests/playwright/junitresults-playwright.xml
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
-          public-repo-id: NNSvcFXb
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.playwright_tests.outcome }}
           test-collection-id: 5fheimOf
+          cli-version: 0.15.5-beta.3
 
       - name: Upload JUnit XML artifacts
         if: ${{ always() }}
