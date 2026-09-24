@@ -37,10 +37,9 @@ jobs:
       - name: Process mocha results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@main
+        uses: trunk-io/analytics-uploader@tyler/allow-forked-pr-uploads
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
-          TRUNK_ALLOW_FORKED_PR_UPLOADS: "true"
         with:
           # Path to your test results.
           junit-paths: javascript/tests/mocha/mocha_test.xml
@@ -50,6 +49,7 @@ jobs:
           previous-step-outcome: ${{ steps.mocha_tests.outcome }}
           test-collection-id: 5fheimOf
           cli-version: 0.15.5-beta.3
+          allow-forked-pr-uploads: true
 
       - name: Run Jest Tests
         id: jest_tests
@@ -59,10 +59,9 @@ jobs:
       - name: Process jest results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@main
+        uses: trunk-io/analytics-uploader@tyler/allow-forked-pr-uploads
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
-          TRUNK_ALLOW_FORKED_PR_UPLOADS: "true"
         with:
           # Path to your test results.
           junit-paths: tests/jest/jest_junit_test.xml
@@ -72,6 +71,7 @@ jobs:
           previous-step-outcome: ${{ steps.jest_tests.outcome }}
           test-collection-id: 5fheimOf
           cli-version: 0.15.5-beta.3
+          allow-forked-pr-uploads: true
 
       - name: Run Jasmine Tests
         id: jasmine_tests
@@ -81,10 +81,9 @@ jobs:
       - name: Process jasmine results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@main
+        uses: trunk-io/analytics-uploader@tyler/allow-forked-pr-uploads
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
-          TRUNK_ALLOW_FORKED_PR_UPLOADS: "true"
         with:
           # Path to your test results.
           junit-paths: tests/jasmine/reports/season_test.xml
@@ -94,6 +93,7 @@ jobs:
           previous-step-outcome: ${{ steps.jasmine_tests.outcome }}
           test-collection-id: 5fheimOf
           cli-version: 0.15.5-beta.3
+          allow-forked-pr-uploads: true
 
       - name: Run Playwright Tests
         id: playwright_tests
@@ -103,10 +103,9 @@ jobs:
       - name: Process playwright results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@main
+        uses: trunk-io/analytics-uploader@tyler/allow-forked-pr-uploads
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
-          TRUNK_ALLOW_FORKED_PR_UPLOADS: "true"
         with:
           # Path to your test results.
           junit-paths: tests/playwright/junitresults-playwright.xml
@@ -116,6 +115,7 @@ jobs:
           previous-step-outcome: ${{ steps.playwright_tests.outcome }}
           test-collection-id: 5fheimOf
           cli-version: 0.15.5-beta.3
+          allow-forked-pr-uploads: true
 
       - name: Upload JUnit XML artifacts
         if: ${{ always() }}
