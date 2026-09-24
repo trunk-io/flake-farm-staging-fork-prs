@@ -49,7 +49,6 @@ jobs:
           previous-step-outcome: ${{ steps.mocha_tests.outcome }}
           test-collection-id: 5fheimOf
           allow-forked-pr-uploads: true
-          cli-version: ${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}
 
       - name: Run Jest Tests
         id: jest_tests
@@ -71,7 +70,6 @@ jobs:
           previous-step-outcome: ${{ steps.jest_tests.outcome }}
           test-collection-id: 5fheimOf
           allow-forked-pr-uploads: true
-          cli-version: ${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}
 
       - name: Run Jasmine Tests
         id: jasmine_tests
@@ -93,7 +91,6 @@ jobs:
           previous-step-outcome: ${{ steps.jasmine_tests.outcome }}
           test-collection-id: 5fheimOf
           allow-forked-pr-uploads: true
-          cli-version: ${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}
 
       - name: Run Playwright Tests
         id: playwright_tests
@@ -115,7 +112,6 @@ jobs:
           previous-step-outcome: ${{ steps.playwright_tests.outcome }}
           test-collection-id: 5fheimOf
           allow-forked-pr-uploads: true
-          cli-version: ${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}
 
       - name: Upload JUnit XML artifacts
         if: ${{ always() }}
