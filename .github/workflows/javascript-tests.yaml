@@ -37,7 +37,7 @@ jobs:
       - name: Process mocha results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@tyler/allow-forked-pr-uploads
+        uses: trunk-io/analytics-uploader@main
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
@@ -48,7 +48,6 @@ jobs:
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.mocha_tests.outcome }}
           test-collection-id: 5fheimOf
-          cli-version: 0.15.5-beta.3
           allow-forked-pr-uploads: true
 
       - name: Run Jest Tests
@@ -59,7 +58,7 @@ jobs:
       - name: Process jest results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@tyler/allow-forked-pr-uploads
+        uses: trunk-io/analytics-uploader@main
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
@@ -70,7 +69,6 @@ jobs:
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.jest_tests.outcome }}
           test-collection-id: 5fheimOf
-          cli-version: 0.15.5-beta.3
           allow-forked-pr-uploads: true
 
       - name: Run Jasmine Tests
@@ -81,7 +79,7 @@ jobs:
       - name: Process jasmine results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@tyler/allow-forked-pr-uploads
+        uses: trunk-io/analytics-uploader@main
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
@@ -92,7 +90,6 @@ jobs:
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.jasmine_tests.outcome }}
           test-collection-id: 5fheimOf
-          cli-version: 0.15.5-beta.3
           allow-forked-pr-uploads: true
 
       - name: Run Playwright Tests
@@ -103,7 +100,7 @@ jobs:
       - name: Process playwright results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@tyler/allow-forked-pr-uploads
+        uses: trunk-io/analytics-uploader@main
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
@@ -114,7 +111,6 @@ jobs:
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.playwright_tests.outcome }}
           test-collection-id: 5fheimOf
-          cli-version: 0.15.5-beta.3
           allow-forked-pr-uploads: true
 
       - name: Upload JUnit XML artifacts
