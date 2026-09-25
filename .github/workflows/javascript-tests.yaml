@@ -37,7 +37,7 @@ jobs:
       - name: Process mocha results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@tyler/base-repo-url
+        uses: trunk-io/analytics-uploader@main
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
@@ -45,11 +45,10 @@ jobs:
           junit-paths: javascript/tests/mocha/mocha_test.xml
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
+          public-repo-id: NNSvcFXb
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.mocha_tests.outcome }}
           test-collection-id: 5fheimOf
-          allow-forked-pr-uploads: true
-          cli-version: 0.15.6-beta.1
 
       - name: Run Jest Tests
         id: jest_tests
@@ -59,7 +58,7 @@ jobs:
       - name: Process jest results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@tyler/base-repo-url
+        uses: trunk-io/analytics-uploader@main
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
@@ -67,11 +66,10 @@ jobs:
           junit-paths: tests/jest/jest_junit_test.xml
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
+          public-repo-id: NNSvcFXb
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.jest_tests.outcome }}
           test-collection-id: 5fheimOf
-          allow-forked-pr-uploads: true
-          cli-version: 0.15.6-beta.1
 
       - name: Run Jasmine Tests
         id: jasmine_tests
@@ -81,7 +79,7 @@ jobs:
       - name: Process jasmine results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@tyler/base-repo-url
+        uses: trunk-io/analytics-uploader@main
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
@@ -89,11 +87,10 @@ jobs:
           junit-paths: tests/jasmine/reports/season_test.xml
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
+          public-repo-id: NNSvcFXb
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.jasmine_tests.outcome }}
           test-collection-id: 5fheimOf
-          allow-forked-pr-uploads: true
-          cli-version: 0.15.6-beta.1
 
       - name: Run Playwright Tests
         id: playwright_tests
@@ -103,7 +100,7 @@ jobs:
       - name: Process playwright results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@tyler/base-repo-url
+        uses: trunk-io/analytics-uploader@main
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
@@ -111,11 +108,10 @@ jobs:
           junit-paths: tests/playwright/junitresults-playwright.xml
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
+          public-repo-id: NNSvcFXb
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.playwright_tests.outcome }}
           test-collection-id: 5fheimOf
-          allow-forked-pr-uploads: true
-          cli-version: 0.15.6-beta.1
 
       - name: Upload JUnit XML artifacts
         if: ${{ always() }}
