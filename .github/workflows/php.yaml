@@ -36,17 +36,17 @@ jobs:
         if: ${{ always() }}
         uses: trunk-io/analytics-uploader@main
         env:
-          TRUNK_PUBLIC_API_ADDRESS: ${{ vars.TRUNK_API_ENDPOINT }}
+          TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
           cli-version: ${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}
           # Path to your test results.
           junit-paths: "**/*_test.xml"
           # Provide your Trunk organization slug.
-          org-slug: ${{ vars.ORG_SLUG }}
+          org-slug: trunk-staging-org
           public-repo-id: NNSvcFXb
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.run_tests.outcome }}
-          test-collection-id: ${{ vars.TEST_COLLECTION_ID }}
+          test-collection-id: bxk8SdlO
 
       - name: Upload JUnit XML artifacts
         if: ${{ always() }}

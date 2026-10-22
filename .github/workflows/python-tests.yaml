@@ -42,19 +42,19 @@ jobs:
         if: ${{ always() }}
         uses: trunk-io/analytics-uploader@main
         env:
-          TRUNK_PUBLIC_API_ADDRESS: ${{ vars.TRUNK_API_ENDPOINT }}
+          TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
           cli-version: ${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}
           # Path to your test results.
           junit-paths: python/results/pytest/pytest_test.xml
           # Provide your Trunk organization slug.
-          org-slug: ${{ vars.ORG_SLUG }}
+          org-slug: trunk-staging-org
           public-repo-id: NNSvcFXb
           # Variant to distinguish between OS platforms
           variant: ${{ matrix.variant }}
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.pytest_tests.outcome }}
-          test-collection-id: ${{ vars.TEST_COLLECTION_ID }}
+          test-collection-id: bxk8SdlO
 
       - name: Run robotframework tests
         id: robotframework_tests
@@ -69,19 +69,19 @@ jobs:
         if: ${{ always() }}
         uses: trunk-io/analytics-uploader@main
         env:
-          TRUNK_PUBLIC_API_ADDRESS: ${{ vars.TRUNK_API_ENDPOINT }}
+          TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
           cli-version: ${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}
           # Path to your test results.
           junit-paths: python/results/robotframework/robot_test.xml
           # Provide your Trunk organization slug.
-          org-slug: ${{ vars.ORG_SLUG }}
+          org-slug: trunk-staging-org
           public-repo-id: NNSvcFXb
           # Variant to distinguish between OS platforms
           variant: ${{ matrix.variant }}
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.robotframework_tests.outcome }}
-          test-collection-id: ${{ vars.TEST_COLLECTION_ID }}
+          test-collection-id: bxk8SdlO
 
       - name: Upload JUnit XML artifacts
         if: ${{ always() }}
