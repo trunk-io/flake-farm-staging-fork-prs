@@ -3,8 +3,8 @@ import reporters from "jasmine-reporters";
 
 var junitReporter = new reporters.JUnitXmlReporter({
   savePath: "tests/jasmine/reports",
-  filePrefix: "season_test",
-  consolidateAll: true,
+  outputFile: "season_test.xml",
+  consolidateAll: false,
 });
 jasmine.getEnv().addReporter(junitReporter);
 
