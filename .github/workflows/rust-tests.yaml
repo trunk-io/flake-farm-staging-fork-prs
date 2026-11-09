@@ -33,7 +33,7 @@ jobs:
       - name: Run rust tests and upload results
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
-          TRUNK_PUBLIC_REPO_ID: NNSvcFXb
+          TRUNK_ALLOW_FORKED_PR_UPLOADS: "true"
         run: |
           ./trunk-analytics-cli test \
             --org-url-slug trunk-staging-org \

@@ -66,6 +66,6 @@ jobs:
           bazel-bep-path: ${{ matrix.bep_format == 'binary' && 'bep.bin' || 'build_events.json' }}
           use-bazel-target-for-codeowners: true
           org-slug: trunk-staging-org
-          public-repo-id: NNSvcFXb
+          allow-forked-pr-uploads: true
           previous-step-outcome: ${{ matrix.bep_format == 'binary' && steps.run_tests_binary.outcome || steps.run_tests_json.outcome }}
           test-collection-id: bxk8SdlO
