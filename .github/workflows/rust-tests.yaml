@@ -22,7 +22,7 @@ jobs:
         run: curl -LsSf https://get.nexte.st/latest/linux | tar zxf - -C ${CARGO_HOME:-~/.cargo}/bin
 
       - name: Install trunk-analytics-cli
-        run: bash get-trunk-cli "${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}"
+        run: bash get-trunk-cli "0.17.0-beta.3"
 
       - name: Run rust tests
         id: run_tests
@@ -34,6 +34,7 @@ jobs:
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
           TRUNK_ALLOW_FORKED_PR_UPLOADS: "true"
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           ./trunk-analytics-cli test \
             --org-url-slug trunk-staging-org \

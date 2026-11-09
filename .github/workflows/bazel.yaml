@@ -62,7 +62,7 @@ jobs:
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
-          cli-version: ${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}
+          cli-version: 0.17.0-beta.3
           bazel-bep-path: ${{ matrix.bep_format == 'binary' && 'bep.bin' || 'build_events.json' }}
           use-bazel-target-for-codeowners: true
           org-slug: trunk-staging-org

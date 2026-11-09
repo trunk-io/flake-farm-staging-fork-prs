@@ -35,7 +35,7 @@ jobs:
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
-          cli-version: ${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}
+          cli-version: 0.17.0-beta.3
           # Path to your test results.
           # This path should match the LogFilePath used in the dotnet test command.
           junit-paths: csharp/**/test-results/csharp-junit.xml
