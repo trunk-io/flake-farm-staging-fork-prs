@@ -41,7 +41,7 @@ jobs:
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
-          cli-version: ${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}
+          cli-version: 0.17.0-beta.3
           # Path to your test results.
           junit-paths: javascript/tests/mocha/mocha_test.xml
           # Provide your Trunk organization slug.
@@ -64,7 +64,7 @@ jobs:
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
-          cli-version: ${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}
+          cli-version: 0.17.0-beta.3
           # Path to your test results.
           junit-paths: "**/junitresults-*.xml"
           # Provide your Trunk organization slug.
@@ -87,7 +87,7 @@ jobs:
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
-          cli-version: ${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}
+          cli-version: 0.17.0-beta.3
           # Path to your test results.
           junit-paths: "**/*_test.xml"
           # Provide your Trunk organization slug.
@@ -110,7 +110,7 @@ jobs:
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
-          cli-version: ${{ vars.ANALYTICS_CLI_PRE_RELEASE_TEST_VERSION }}
+          cli-version: 0.17.0-beta.3
           # Path to your test results.
           junit-paths: tests/playwright/junitresults-playwright.xml
           # Provide your Trunk organization slug.
