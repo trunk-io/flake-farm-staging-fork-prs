@@ -3,8 +3,6 @@ name: Bazel Tests
 permissions: read-all
 
 on:
-  schedule:
-    - cron: 0 */6 * * *
   pull_request: {}
 
 jobs:
