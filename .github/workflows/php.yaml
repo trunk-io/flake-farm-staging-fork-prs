@@ -34,11 +34,11 @@ jobs:
       - name: Process test results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@main
+        uses: trunk-io/analytics-uploader@v2
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
-          cli-version: 0.17.0-beta.3
+          cli-version: 0.17.0
           # Path to your test results.
           junit-paths: "**/*_test.xml"
           # Provide your Trunk organization slug.

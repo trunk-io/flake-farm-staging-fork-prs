@@ -31,11 +31,11 @@ jobs:
 
       - name: Process test results
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@main
+        uses: trunk-io/analytics-uploader@v2
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
-          cli-version: 0.17.0-beta.3
+          cli-version: 0.17.0
           # Path to your test results.
           # This path should match the LogFilePath used in the dotnet test command.
           junit-paths: csharp/**/test-results/csharp-junit.xml
