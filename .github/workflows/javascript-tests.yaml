@@ -46,6 +46,7 @@ jobs:
           junit-paths: javascript/tests/mocha/mocha_test.xml
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
+          token: ${{ secrets.TRUNK_STAGING_API_V2_TOKEN }}
           allow-forked-pr-uploads: true
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.mocha_tests.outcome }}
@@ -69,6 +70,7 @@ jobs:
           junit-paths: "**/junitresults-*.xml"
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
+          token: ${{ secrets.TRUNK_STAGING_API_V2_TOKEN }}
           allow-forked-pr-uploads: true
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.jest_tests.outcome }}
@@ -92,6 +94,7 @@ jobs:
           junit-paths: "**/*_test.xml"
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
+          token: ${{ secrets.TRUNK_STAGING_API_V2_TOKEN }}
           allow-forked-pr-uploads: true
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.jasmine_tests.outcome }}
@@ -115,6 +118,7 @@ jobs:
           junit-paths: tests/playwright/junitresults-playwright.xml
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
+          token: ${{ secrets.TRUNK_STAGING_API_V2_TOKEN }}
           allow-forked-pr-uploads: true
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.playwright_tests.outcome }}

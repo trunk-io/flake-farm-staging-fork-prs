@@ -10,7 +10,8 @@ permissions:
 
 jobs:
   swift_test:
-    runs-on: ubuntu-latest
+    # setup-swift 2.4.0 has no Ubuntu 26.04 toolchain, which ubuntu-latest now is.
+    runs-on: ubuntu-24.04
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -48,6 +49,7 @@ jobs:
           junit-paths: apple/swift/test-results/*.xml
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
+          token: ${{ secrets.TRUNK_STAGING_API_V2_TOKEN }}
           allow-forked-pr-uploads: true
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.run_tests.outcome }}

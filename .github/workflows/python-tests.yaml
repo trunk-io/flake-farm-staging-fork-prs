@@ -49,6 +49,7 @@ jobs:
           junit-paths: python/results/pytest/pytest_test.xml
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
+          token: ${{ secrets.TRUNK_STAGING_API_V2_TOKEN }}
           allow-forked-pr-uploads: true
           # Variant to distinguish between OS platforms
           variant: ${{ matrix.variant }}
@@ -76,6 +77,7 @@ jobs:
           junit-paths: python/results/robotframework/robot_test.xml
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
+          token: ${{ secrets.TRUNK_STAGING_API_V2_TOKEN }}
           allow-forked-pr-uploads: true
           # Variant to distinguish between OS platforms
           variant: ${{ matrix.variant }}

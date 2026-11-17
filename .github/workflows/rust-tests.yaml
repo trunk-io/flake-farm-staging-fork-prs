@@ -34,6 +34,7 @@ jobs:
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
           TRUNK_ALLOW_FORKED_PR_UPLOADS: "true"
+          TRUNK_API_TOKEN: ${{ secrets.TRUNK_STAGING_API_V2_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           ./trunk-analytics-cli test \

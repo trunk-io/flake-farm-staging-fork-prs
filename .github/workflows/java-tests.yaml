@@ -47,6 +47,7 @@ jobs:
           junit-paths: "**/gradle/**/test-results/**/*.xml,**/surefire-reports/*.xml,**/playwright/**/surefire-reports/*.xml"
           # Provide your Trunk organization slug.
           org-slug: trunk-staging-org
+          token: ${{ secrets.TRUNK_STAGING_API_V2_TOKEN }}
           allow-forked-pr-uploads: true
           # Pass the test outcome for quarantining support
           previous-step-outcome: ${{ steps.run_tests.outcome }}
