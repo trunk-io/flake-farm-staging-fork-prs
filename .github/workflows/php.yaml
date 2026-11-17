@@ -38,7 +38,7 @@ jobs:
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
-          cli-version: 0.17.0
+          cli-version: 1.0.0-beta.1
           # Path to your test results.
           junit-paths: "**/*_test.xml"
           # Provide your Trunk organization slug.
