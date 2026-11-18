@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3      - uses: actions/checkout@v4      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@nightly
@@ -22,7 +22,7 @@ jobs:
         run: curl -LsSf https://get.nexte.st/latest/linux | tar zxf - -C ${CARGO_HOME:-~/.cargo}/bin
 
       - name: Install trunk-analytics-cli
-        run: bash get-trunk-cli "0.17.0"
+        run: bash get-trunk-cli "1.0.0-beta.2"
 
       - name: Run rust tests
         id: run_tests
@@ -34,6 +34,7 @@ jobs:
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
           TRUNK_ALLOW_FORKED_PR_UPLOADS: "true"
+          TRUNK_API_TOKEN: ${{ secrets.TRUNK_STAGING_API_V2_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           ./trunk-analytics-cli test \
@@ -44,7 +45,7 @@ jobs:
 
       - name: Upload JUnit XML artifacts
         if: ${{ always() }}
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1        uses: actions/upload-artifact@v4        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: rust-junit-results
           path: rust/**/nextest/ci/*junit.xml
