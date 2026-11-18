@@ -68,7 +68,7 @@ jobs:
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
-          cli-version: 1.0.0-beta.2
+          cli-version: 1.0.0
           # Path to your test results.
           junit-paths: "**/rspec_test.xml"
           # Provide your Trunk organization slug.
@@ -92,7 +92,7 @@ jobs:
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
-          cli-version: 1.0.0-beta.2
+          cli-version: 1.0.0
           # Path to your test results.
           junit-paths: "**/ruby/minitest/results/*.xml"
           # Provide your Trunk organization slug.
