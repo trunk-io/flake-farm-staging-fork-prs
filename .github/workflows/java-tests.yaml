@@ -42,7 +42,7 @@ jobs:
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
         with:
-          cli-version: 1.0.0-beta.1
+          cli-version: 1.0.0-beta.2
           # Path to your test results.
           junit-paths: "**/gradle/**/test-results/**/*.xml,**/surefire-reports/*.xml,**/playwright/**/surefire-reports/*.xml"
           # Provide your Trunk organization slug.
