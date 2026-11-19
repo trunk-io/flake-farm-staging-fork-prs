@@ -40,11 +40,12 @@ jobs:
       - name: Process pytest results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@v2
+        uses: trunk-io/analytics-uploader@v3
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
+          TRUNK_API_URL: https://api.trunk-staging.io/v2
         with:
-          cli-version: 1.0.0-beta.2
+          cli-version: 1.0.0
           # Path to your test results.
           junit-paths: python/results/pytest/pytest_test.xml
           # Provide your Trunk organization slug.
@@ -68,11 +69,12 @@ jobs:
       - name: Process robotframework results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@v2
+        uses: trunk-io/analytics-uploader@v3
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
+          TRUNK_API_URL: https://api.trunk-staging.io/v2
         with:
-          cli-version: 1.0.0-beta.2
+          cli-version: 1.0.0
           # Path to your test results.
           junit-paths: python/results/robotframework/robot_test.xml
           # Provide your Trunk organization slug.

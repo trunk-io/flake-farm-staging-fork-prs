@@ -37,11 +37,12 @@ jobs:
       - name: Process mocha results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@v2
+        uses: trunk-io/analytics-uploader@v3
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
+          TRUNK_API_URL: https://api.trunk-staging.io/v2
         with:
-          cli-version: 1.0.0-beta.2
+          cli-version: 1.0.0
           # Path to your test results.
           junit-paths: javascript/tests/mocha/mocha_test.xml
           # Provide your Trunk organization slug.
@@ -61,11 +62,12 @@ jobs:
       - name: Process jest results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@v2
+        uses: trunk-io/analytics-uploader@v3
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
+          TRUNK_API_URL: https://api.trunk-staging.io/v2
         with:
-          cli-version: 1.0.0-beta.2
+          cli-version: 1.0.0
           # Path to your test results.
           junit-paths: "**/junitresults-*.xml"
           # Provide your Trunk organization slug.
@@ -85,11 +87,12 @@ jobs:
       - name: Process jasmine results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@v2
+        uses: trunk-io/analytics-uploader@v3
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
+          TRUNK_API_URL: https://api.trunk-staging.io/v2
         with:
-          cli-version: 1.0.0-beta.2
+          cli-version: 1.0.0
           # Path to your test results.
           junit-paths: "**/*_test.xml"
           # Provide your Trunk organization slug.
@@ -109,11 +112,12 @@ jobs:
       - name: Process playwright results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@v2
+        uses: trunk-io/analytics-uploader@v3
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
+          TRUNK_API_URL: https://api.trunk-staging.io/v2
         with:
-          cli-version: 1.0.0-beta.2
+          cli-version: 1.0.0
           # Path to your test results.
           junit-paths: tests/playwright/junitresults-playwright.xml
           # Provide your Trunk organization slug.

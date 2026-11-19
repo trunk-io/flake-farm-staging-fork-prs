@@ -25,7 +25,7 @@ jobs:
           cat Gemfile
 
       - name: Set up Ruby
-        uses: ruby/setup-ruby@20eb24b0d509e2b9ed9b6d42ddfeb992915e0564 # v1.341.0
+        uses: ruby/setup-ruby@f9c4492e86def3e644ab32a0ef185eda5b0c20d0 # v1.342.0
         with:
           ruby-version: 3.4.9
           bundler-cache: ${{ !inputs.rspec_trunk_flaky_tests_version }}
@@ -64,11 +64,12 @@ jobs:
       - name: Process rspec results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@v2
+        uses: trunk-io/analytics-uploader@v3
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
+          TRUNK_API_URL: https://api.trunk-staging.io/v2
         with:
-          cli-version: 1.0.0-beta.2
+          cli-version: 1.0.0
           # Path to your test results.
           junit-paths: "**/rspec_test.xml"
           # Provide your Trunk organization slug.
@@ -88,11 +89,12 @@ jobs:
       - name: Process minitest results
         # Run this step even if the test step ahead fails
         if: ${{ always() }}
-        uses: trunk-io/analytics-uploader@v2
+        uses: trunk-io/analytics-uploader@v3
         env:
           TRUNK_PUBLIC_API_ADDRESS: "https://api.trunk-staging.io"
+          TRUNK_API_URL: https://api.trunk-staging.io/v2
         with:
-          cli-version: 1.0.0-beta.2
+          cli-version: 1.0.0
           # Path to your test results.
           junit-paths: "**/ruby/minitest/results/*.xml"
           # Provide your Trunk organization slug.
